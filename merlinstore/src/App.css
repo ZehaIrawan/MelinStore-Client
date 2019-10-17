@@ -100,3 +100,22 @@ button {
 .table th {
   background: var(--light-color);
 }
+
+.product-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.product{
+  width: 260px;
+  border:4px solid tomato;
+}
+
+.product *{
+  padding-bottom: 20px;
+}
+
+.product-img{
+  width: 250px;
+  height: 200px;
+}

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch,Route } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Products from './components/Products'
+import ProductList from './components/ProductList'
 import Login from './components/Login'
 import Register from './components/Register'
 import store from './redux/store';
@@ -27,7 +27,7 @@ const App = () => {
         <Fragment>
           <Switch>
           <Route exact path="/" component={Register} />
-            <PrivateRoutes exact path="/products" component={Products} />
+            <PrivateRoutes exact path="/products" component={ProductList} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Navbar />
