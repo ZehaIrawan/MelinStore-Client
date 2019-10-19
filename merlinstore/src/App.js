@@ -11,6 +11,7 @@ import store from './redux/store';
 import PrivateRoutes from './components/routing/PrivateRoutes';
 import setAuthToken from './components/utils/setAuthToken';
 import { loadUser } from './redux/actions/auth';
+import Cart from './components/Cart';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -30,6 +31,7 @@ const App = () => {
             <PrivateRoutes exact path="/products" component={ProductList} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <PrivateRoutes exact path="/cart" component={Cart} />
             <Navbar />
             <Footer />
           </Switch>

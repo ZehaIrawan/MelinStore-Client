@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getProducts } from '../redux/actions/product';
 import Product from './Product';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const ProductList = ({ getProducts, loading, products }) => {
   useEffect(() => {
@@ -11,9 +13,11 @@ const ProductList = ({ getProducts, loading, products }) => {
   if (loading) {
     return <p>Loading ...</p>;
   }
-  console.log(products.products);
+
 
   return (
+    <Fragment>
+      <Navbar/>
     <div className="product-container">
       {products.products.map(product => (
         <Product
@@ -25,6 +29,8 @@ const ProductList = ({ getProducts, loading, products }) => {
         />
       ))}
     </div>
+    <Footer/>
+    </Fragment>
   );
 };
 

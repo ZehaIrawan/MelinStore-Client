@@ -18,6 +18,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 25px 99px;
+  margin-bottom: 50px;
 }
 
 nav a h2,
@@ -101,21 +102,48 @@ button {
   background: var(--light-color);
 }
 
-.product-container{
+.product-container {
   display: flex;
   justify-content: space-between;
 }
 
-.product{
+.product {
   width: 260px;
-  border:4px solid tomato;
+  border: 4px solid tomato;
 }
 
-.product *{
+.product * {
   padding-bottom: 20px;
 }
 
-.product-img{
+.product-img {
   width: 250px;
   height: 200px;
+}
+
+.cart {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.cart-text{
+  margin-left: 50px;
+}
+
+.cart-text h2{
+  margin-bottom: 40px;
+}
+
+.cart-button {
+  height: 20px;
+  width: 20px;
+}
+
+.quantity {
+  display: flex;
+  float: right;
+}
+
+.quantity:last-child {
+  margin-left: auto;
 }

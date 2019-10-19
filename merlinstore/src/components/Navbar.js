@@ -6,26 +6,30 @@ import { logout } from '../redux/actions/auth';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <nav>
+    <Fragment>
       <Link to="/products">
         <h2>Products</h2>
+      </Link>
+
+      <Link to="/cart">
+        <h2>Cart</h2>
       </Link>
 
       <Link to="/login">
         <h2 onClick={logout}>Logout</h2>
       </Link>
-    </nav>
+    </Fragment>
   );
 
   const guestLinks = (
-    <nav>
+    <Fragment>
       <Link to="/register">
         <h2>Register</h2>
       </Link>
       <Link to="/login">
         <h2>Login</h2>
       </Link>
-    </nav>
+    </Fragment>
   );
 
   return (
