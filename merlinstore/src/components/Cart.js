@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getCart } from '../redux/actions/cart';
+import { getCart, increaseCart, decreaseCart } from '../redux/actions/cart';
 import CartItem from './CartItem';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-const Cart = ({ getCart, loading, cart }) => {
+const Cart = ({ getCart, loading, cart, increaseCart,decreaseCart }) => {
   useEffect(() => {
     getCart();
   }, [getCart]);
@@ -27,6 +27,8 @@ const Cart = ({ getCart, loading, cart }) => {
             description={cart.description}
             price={cart.price}
             quantity={cart.quantity}
+            increaseCart={increaseCart}
+            decreaseCart={decreaseCart}
           />
         ))}
       </div>
@@ -41,5 +43,5 @@ const mapStateToProp = state => ({
 
 export default connect(
   mapStateToProp,
-  { getCart },
+  { getCart, increaseCart,decreaseCart },
 )(Cart);

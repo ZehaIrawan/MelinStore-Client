@@ -1,8 +1,14 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { ADD_TO_CART, GET_CART, REMOVE_CART } from './types';
+import {
+  ADD_TO_CART,
+  DECREASE_CART,
+  GET_CART,
+  INCREASE_CART,
+  REMOVE_CART,
+} from './types';
 
-// Get PRODUGET_PRODUCTS
+// Get all products
 export const getCart = () => async dispatch => {
   try {
     const res = await axios.get('/api/cart');
@@ -49,6 +55,50 @@ export const removeCart = id => async dispatch => {
     });
 
     dispatch(setAlert('Item Removed from cart', 'success'));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Increase quantity for an item in the cart
+export const increaseCart = (id, formData) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const res = await axios.put(`/api/cart/${id}`, formData, config);
+
+    dispatch({
+      type: INCREASE_CART,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Quantity increased', 'success'));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Decrease quantity for an item in the cart
+export const decreaseCart = (id, formData) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const res = await axios.put(`/api/cart/${id}`, formData, config);
+
+    dispatch({
+      type: DECREASE_CART,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Quantity decreased', 'success'));
   } catch (err) {
     console.log(err);
   }
