@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getCart, increaseCart, decreaseCart } from '../redux/actions/cart';
+import { decreaseCart, getCart, increaseCart } from '../redux/actions/cart';
 import CartItem from './CartItem';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-const Cart = ({ getCart, loading, cart, increaseCart,decreaseCart }) => {
+const Cart = ({ getCart, loading, cart, increaseCart, decreaseCart }) => {
   useEffect(() => {
     getCart();
   }, [getCart]);
@@ -13,6 +13,11 @@ const Cart = ({ getCart, loading, cart, increaseCart,decreaseCart }) => {
   if (loading) {
     return <p>Loading ...</p>;
   }
+
+  let total = 0;
+  cart.cart.map(item => {
+   return total += item.price *item.quantity;
+  });
 
   return (
     <Fragment>
@@ -32,6 +37,7 @@ const Cart = ({ getCart, loading, cart, increaseCart,decreaseCart }) => {
           />
         ))}
       </div>
+      <h3 className="total">Total: ${total}</h3>
       <Footer />
     </Fragment>
   );
@@ -43,5 +49,5 @@ const mapStateToProp = state => ({
 
 export default connect(
   mapStateToProp,
-  { getCart, increaseCart,decreaseCart },
+  { getCart, increaseCart, decreaseCart },
 )(Cart);

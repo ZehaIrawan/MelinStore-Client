@@ -7,7 +7,9 @@
 body {
   font-family: 'Roboto Slab', serif;
   background-color: #f5f6fa;
-  padding: 100px;
+  padding-top: 100px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 nav {
@@ -126,11 +128,11 @@ button {
   margin-bottom: 40px;
 }
 
-.cart-text{
+.cart-text {
   margin-left: 50px;
 }
 
-.cart-text h2{
+.cart-text h2 {
   margin-bottom: 40px;
 }
 
@@ -146,4 +148,22 @@ button {
 
 .quantity:last-child {
   margin-left: auto;
+}
+
+footer {
+  border-top: 2px solid grey;
+  height: 15vh;
+  text-align: center;
+  line-height: 15vh;
+}
+
+.total {
+  margin-left: 90%;
+  padding-bottom: 20px;
+}
+
+.remove-cart svg {
+  margin-left: 400px;
+  width: 40px;
+  height: 30px;
 }

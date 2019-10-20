@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { removeCart } from '../redux/actions/cart';
+import { IoMdTrash } from "react-icons/io";
 
 const CartItem = ({
   title,
@@ -29,12 +30,12 @@ const CartItem = ({
           <h2>{title}</h2>
           <h3>${price}</h3>
         </div>
-        <div
+        <div className="remove-cart"
           onClick={() => {
             removeCart(id);
           }}
         >
-          Remove
+          <IoMdTrash/>
         </div>
         <div className="quantity">
           <button
