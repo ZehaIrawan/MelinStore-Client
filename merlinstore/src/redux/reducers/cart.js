@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  CLEAR_CART,
   DECREASE_CART,
   GET_CART,
   INCREASE_CART,
@@ -52,26 +53,31 @@ const cart = (state = initialState, action) => {
       };
 
     case DECREASE_CART:
-        return {
-          ...state,
-          cart: state.cart.map((item, index) => {
-            // Find the item with the matching id
+      return {
+        ...state,
+        cart: state.cart.map((item, index) => {
+          // Find the item with the matching id
 
-            if (item._id === payload._id) {
-              // Return a new object
+          if (item._id === payload._id) {
+            // Return a new object
 
-              return {
-                ...item, // copy the existing item
-                quantity: payload.quantity,
-              };
-            }
-            // Leave every other item unchanged
+            return {
+              ...item, // copy the existing item
+              quantity: payload.quantity,
+            };
+          }
+          // Leave every other item unchanged
 
-            return item;
-          }),
+          return item;
+        }),
 
-          loading: false,
-        };;
+        loading: false,
+      };
+    case CLEAR_CART:
+      return {
+        ...state,cart:[]
+      };
+
     default:
       return state;
   }

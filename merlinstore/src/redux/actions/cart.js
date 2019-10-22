@@ -2,6 +2,7 @@ import axios from 'axios';
 import { setAlert } from './alert';
 import {
   ADD_TO_CART,
+  CLEAR_CART,
   DECREASE_CART,
   GET_CART,
   INCREASE_CART,
@@ -75,8 +76,6 @@ export const increaseCart = (id, formData) => async dispatch => {
       type: INCREASE_CART,
       payload: res.data,
     });
-
-    dispatch(setAlert('Quantity increased', 'success'));
   } catch (err) {
     console.log(err);
   }
@@ -97,9 +96,24 @@ export const decreaseCart = (id, formData) => async dispatch => {
       type: DECREASE_CART,
       payload: res.data,
     });
-
-    dispatch(setAlert('Quantity decreased', 'success'));
   } catch (err) {
     console.log(err);
   }
+};
+
+//Clear items from cart
+export const clearCart = cart => async dispatch => {
+  for (let i = 0; i < cart.length; i++) {
+    console.log(cart[i]._id);
+    try {
+      await axios.delete(`/api/cart/${cart[i]._id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  dispatch({
+    type: CLEAR_CART,
+    payload: cart.id,
+  });
+  dispatch(setAlert('Cart cleared', 'success'));
 };
