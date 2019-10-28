@@ -11,6 +11,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <h2>Products</h2>
       </Link>
 
+      <Link to="/your_account_orders">
+        <h2>Your Orders</h2>
+      </Link>
+
       <Link to="/cart">
         <h2>Cart</h2>
       </Link>

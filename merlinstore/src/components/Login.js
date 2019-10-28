@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { login } from '../redux/actions/auth';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -65,12 +66,12 @@ const Login = ({ login, isAuthenticated }) => {
         Dont have an account?
         <Link to="/register">Sign Up</Link>
       </p>
+      <Footer/>
     </Fragment>
   );
 };
 
 Login.propTypes = {
-  login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
 };
 

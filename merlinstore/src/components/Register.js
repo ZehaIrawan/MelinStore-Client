@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../redux/actions/alert';
 import { register } from '../redux/actions/auth';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -87,6 +88,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         Already have an account?
         <Link to="/login">Sign In</Link>
       </p>
+      <Footer/>
     </Fragment>
   );
 };
