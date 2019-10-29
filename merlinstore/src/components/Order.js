@@ -7,6 +7,7 @@ const Order = () => {
     <Fragment>
       <Navbar />
       Order
+      <p>Add Stripe</p>
       <Footer />
     </Fragment>
   );
