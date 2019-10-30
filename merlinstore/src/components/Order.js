@@ -8,6 +8,7 @@ const Order = () => {
       <Navbar />
       Order
       <p>Add Stripe</p>
+      <p>Add paypal</p>
       <Footer />
     </Fragment>
   );
