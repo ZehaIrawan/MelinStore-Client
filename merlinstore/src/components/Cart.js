@@ -58,21 +58,19 @@ const Cart = ({
   return (
     <Fragment>
       <Navbar />
-      <div>
-        {cart.cart.map(cart => (
-          <CartItem
-            key={cart._id}
-            id={cart._id}
-            title={cart.title}
-            img={cart.img}
-            description={cart.description}
-            price={cart.price}
-            quantity={cart.quantity}
-            increaseCart={increaseCart}
-            decreaseCart={decreaseCart}
-          />
-        ))}
-      </div>
+      {cart.cart.map(cart => (
+        <CartItem
+          key={cart._id}
+          id={cart._id}
+          title={cart.title}
+          img={cart.img}
+          description={cart.description}
+          price={cart.price}
+          quantity={cart.quantity}
+          increaseCart={increaseCart}
+          decreaseCart={decreaseCart}
+        />
+      ))}
       <button
         onClick={() => {
           clearCart(cart.cart);
@@ -82,7 +80,7 @@ const Cart = ({
         Clear Cart
       </button>
       <h3 className="total">Total: ${total}</h3>
-      <PayButton data={cart.cart[0]} total={total} />
+      <PayButton products={cart.cart} total={total} />
       <Footer />
     </Fragment>
   );

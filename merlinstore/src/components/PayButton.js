@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { clearCart } from '../redux/actions/cart';
+import { addOrders } from '../redux/actions/order';
 
-const PayButton = ({ data,total }) => {
-  const product = {
-    price: data.price,
-    name: data.title,
-    description: data.description.substring(0, 20),
-    quantity: data.quantity,
-  };
-
+const PayButton = ({ products, total, clearCart, cart, addOrders }) => {
   const [paidFor, setPaidFor] = useState(false);
   const [error, setError] = useState(null);
   const paypalRef = useRef();
@@ -45,7 +42,11 @@ const PayButton = ({ data,total }) => {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           setPaidFor(true);
-          console.log(order);
+          products.map(e => {
+            addOrders({ id: e.id });
+          });
+          clearCart(cart.cart);
+        console.log(order);
         },
         onError: err => {
           setError(err);
@@ -56,14 +57,20 @@ const PayButton = ({ data,total }) => {
   }, [total]);
 
   if (paidFor) {
-    return (
-      <div>
-        <h1>Congrats, you just bought {product.name}!</h1>
-        <img alt={product.description} />
-      </div>
+    alert(
+      'Congrats, you just bought it! Check your order to download your ebook',
     );
+    return <Redirect to="/your_account_orders" />;
   }
   return <div ref={paypalRef} />;
 };
 
-export default PayButton;
+const mapStateToProp = state => ({
+  cart: state.cart,
+  loading: state.cart.loading,
+});
+
+export default connect(
+  mapStateToProp,
+  { clearCart, addOrders },
+)(PayButton);

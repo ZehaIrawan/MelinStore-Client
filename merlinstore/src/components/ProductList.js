@@ -20,6 +20,7 @@ const ProductList = ({ getProducts, loading, products }) => {
     );
   }
 
+
   return (
     <Fragment>
       <Navbar />
@@ -31,6 +32,7 @@ const ProductList = ({ getProducts, loading, products }) => {
             img={product.img}
             description={product.description}
             price={product.price}
+            id={product._id}
           />
         ))}
       </div>

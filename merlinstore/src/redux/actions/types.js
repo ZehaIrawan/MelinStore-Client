@@ -14,4 +14,5 @@ export const REMOVE_CART = 'REMOVE_CART';
 export const INCREASE_CART = 'INCREASE_CART ';
 export const DECREASE_CART = ' DECREASE_CART ';
 export const CLEAR_CART = ' CLEAR_CART ';
+export const GET_ORDERS = 'GET_ORDERS';
 

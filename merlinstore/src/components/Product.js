@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/cart';
 
-const Product = ({ title, price, description, img,addToCart }) => {
+const Product = ({ title, price, description, img,addToCart ,id}) => {
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,6 +13,7 @@ const Product = ({ title, price, description, img,addToCart }) => {
       description,
       img,
       quantity: 1,
+      id
     };
 
     addToCart(formData);
