@@ -21,6 +21,7 @@ const PayButton = ({ products, total, clearCart, cart, addOrders }) => {
                   currency_code: 'USD',
                   value: total,
                 },
+                // Testing to add details of the order
                 // item: [
                 //   {
                 //     name: product.name,
