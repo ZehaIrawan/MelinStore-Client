@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React,{Fragment} from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions/cart';
+import { Link } from 'react-router-dom';
+
 
 const Product = ({ title, price, description, img,addToCart ,id}) => {
 
@@ -20,13 +22,16 @@ const Product = ({ title, price, description, img,addToCart ,id}) => {
   };
 
   return (
+    <Fragment> <Link to={`/product/${id}`}>
     <div className="product">
       <h2>{title}</h2>
       <img className="product-img" src={img} alt="" />
-      <p>{description}</p>
+      {/* <p>{description}</p>
       <h3>${price}</h3>
-      <button onClick={handleSubmit}>Add to cart</button>
+      <button className="add-to-cart" onClick={handleSubmit}>Add to cart</button> */}
     </div>
+    </Link>
+    </Fragment>
   );
 };
 

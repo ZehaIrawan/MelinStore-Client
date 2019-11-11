@@ -75,7 +75,7 @@ const Cart = ({
         onClick={() => {
           clearCart(cart.cart);
         }}
-        className="total"
+        className="total add-to-cart"
       >
         Clear Cart
       </button>

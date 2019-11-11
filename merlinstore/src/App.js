@@ -13,6 +13,7 @@ import setAuthToken from './components/utils/setAuthToken';
 import { loadUser } from './redux/actions/auth';
 import store from './redux/store';
 import Order from './components/Order';
+import ProductItem from './components/ProductItem'
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -29,7 +30,8 @@ const App = () => {
         <Fragment>
           <Switch>
             <Route exact path="/" component={Register} />
-            <PrivateRoutes exact path="/products" component={ProductList} />
+            <Route exact path="/products" component={ProductList} />
+            <Route exact path="/product/:id" component={ProductItem}/>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <PrivateRoutes exact path="/your_account_orders" component={Order} />

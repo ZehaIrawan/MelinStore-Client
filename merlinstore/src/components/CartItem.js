@@ -38,7 +38,7 @@ const CartItem = ({
           <IoMdTrash/>
         </div>
         <div className="quantity">
-          <button
+          {/* <button
             onClick={() => {
               decreaseCart(id, {
                 ...formData,
@@ -48,9 +48,9 @@ const CartItem = ({
             className="cart-button"
           >
             -
-          </button>
-          <h4>{quantity}</h4>
-          <button
+          </button> */}
+          {/* <h4>{quantity}</h4> */}
+          {/* <button
             onClick={() => {
               increaseCart(id, {
                 ...formData,
@@ -60,7 +60,7 @@ const CartItem = ({
             className="cart-button"
           >
             +
-          </button>
+          </button> */}
         </div>
       </div>
     </Fragment>
