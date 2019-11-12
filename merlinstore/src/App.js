@@ -29,7 +29,7 @@ const App = () => {
       <Router>
         <Fragment>
           <Switch>
-            <Route exact path="/" component={Register} />
+            <Route exact path="/" component={ProductList} />
             <Route exact path="/products" component={ProductList} />
             <Route exact path="/product/:id" component={ProductItem}/>
             <Route exact path="/register" component={Register} />

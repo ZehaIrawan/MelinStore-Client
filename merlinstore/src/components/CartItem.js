@@ -35,7 +35,7 @@ const CartItem = ({
             removeCart(id);
           }}
         >
-          <IoMdTrash/>
+          <IoMdTrash className="trash-icon"/>
         </div>
         <div className="quantity">
           {/* <button
