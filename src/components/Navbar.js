@@ -19,7 +19,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <h2>Cart</h2>
       </Link>
 
-      <Link to="/login">
+      <Link to="/products">
         <h2 onClick={logout}>Logout</h2>
       </Link>
     </Fragment>

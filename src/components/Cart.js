@@ -1,15 +1,15 @@
-import React, { Fragment, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { Fragment, useEffect } from "react";
+import { connect } from "react-redux";
 import {
   clearCart,
   decreaseCart,
   getCart,
-  increaseCart,
-} from '../redux/actions/cart';
-import CartItem from './CartItem';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import PayButton from './PayButton';
+  increaseCart
+} from "../redux/actions/cart";
+import CartItem from "./CartItem";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import PayButton from "./PayButton";
 
 const Cart = ({
   getCart,
@@ -17,7 +17,7 @@ const Cart = ({
   cart,
   increaseCart,
   decreaseCart,
-  clearCart,
+  clearCart
 }) => {
   useEffect(() => {
     getCart();
@@ -41,12 +41,12 @@ const Cart = ({
     return (
       <Fragment>
         <Navbar />
-        <h3 style={{ textAlign: 'center' }}> Your cart is empty</h3>
+        <h3 style={{ textAlign: "center" }}> Your cart is empty</h3>
         <button
           onClick={() => {
             clearCart(cart.cart);
           }}
-          className="total"
+          className="total theme-button"
         >
           Clear Cart
         </button>
@@ -88,10 +88,12 @@ const Cart = ({
 
 const mapStateToProp = state => ({
   cart: state.cart,
-  loading: state.cart.loading,
+  loading: state.cart.loading
 });
 
-export default connect(
-  mapStateToProp,
-  { getCart, increaseCart, decreaseCart, clearCart },
-)(Cart);
+export default connect(mapStateToProp, {
+  getCart,
+  increaseCart,
+  decreaseCart,
+  clearCart
+})(Cart);
