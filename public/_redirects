@@ -1,0 +1,3 @@
+/api/*  https://obscure-bayou-46339.herokuapp.com/api/:splat  200
+
+/*    /index.html   200
