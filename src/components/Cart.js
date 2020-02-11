@@ -80,7 +80,7 @@ const Cart = ({
         Clear Cart
       </button>
       <h3 className="total">Total: ${total}</h3>
-      <PayButton products={cart.cart} total={total} />
+      {/* <PayButton products={cart.cart} total={total} /> */}
       <Footer />
     </Fragment>
   );

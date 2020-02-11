@@ -37,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://obscure-bayou-46339.herokuapp.com/"
+  "proxy": "http://localhost:5000"
 }
